@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignInPage"
+    android:background="@drawable/linenear_signin_login">
+
+    <ImageView
+        android:id="@+id/sign_in_pic"
+        android:layout_width="230dp"
+        android:layout_height="120dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"
+        android:src="@drawable/signtuppage_icon" />
+
+    <TextView
+        android:id="@+id/signup_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sign_in_pic"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/gothicb"
+        android:text="ĐĂNG KÝ"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:id="@+id/signup_username"
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/signup_text"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/password_frame">
+
+        <ImageView
+            android:id="@+id/icon_signup_username"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="11dp"
+            android:src="@drawable/username_icon" />
+
+        <EditText
+            android:hint="Tên đăng nhập"
+            android:textColorHint="@color/white"
+            android:id="@+id/edittext_signup_username"
+            android:layout_width="225dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="65dp"
+            android:layout_marginTop="11dp"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/white" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/signup_email"
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/signup_username"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/password_frame">
+
+        <ImageView
+            android:id="@+id/icon_signup_email"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="11dp"
+            android:src="@drawable/username_icon" />
+
+        <EditText
+            android:hint="Email đăng ký"
+            android:textColorHint="@color/white"
+            android:id="@+id/edittext_signup_email"
+            android:layout_width="225dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="65dp"
+            android:layout_marginTop="11dp"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/white" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/signup_password"
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/signup_email"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/username_frame">
+
+        <ImageView
+            android:id="@+id/icon_signup_password"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="11dp"
+            android:src="@drawable/password_icon" />
+
+        <EditText
+            android:hint="Mật khẩu"
+            android:inputType="textPassword"
+            android:textColorHint="@color/white"
+            android:id="@+id/edittext_signup_password"
+            android:layout_width="225dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="65dp"
+            android:layout_marginTop="11dp"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/white" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/signup_rewrite_password"
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/signup_password"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/username_frame">
+
+        <ImageView
+            android:id="@+id/icon_signup_rewrite_password"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="11dp"
+            android:src="@drawable/rewrite_icon" />
+
+        <EditText
+            android:inputType="textPassword"
+            android:hint="Nhập lại mật khẩu"
+            android:textColorHint="@color/white"
+            android:id="@+id/edittext_signup_rewrite_password"
+            android:layout_width="225dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="65dp"
+            android:layout_marginTop="11dp"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/white" />
+
+    </RelativeLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/signin_button"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_below="@+id/signup_rewrite_password"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:text="KHỞI TẠO"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/back_to_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/signin_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:onClick="ToLogin"
+        android:text="Đến đăng nhập"
+        android:textColor="@color/blue"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+    <ProgressBar
+        android:id="@+id/progress_stage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:visibility="gone"
+        tools:ignore="MissingConstraints"
+        />
+</RelativeLayout>

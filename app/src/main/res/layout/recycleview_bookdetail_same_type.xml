@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/linenear_background">
+
+        <ImageView
+            android:id="@+id/recycleview_same_type_image"
+            android:layout_width="80dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/book_arsene_lupin"
+            android:layout_marginLeft="5dp"/>
+        <TextView
+            android:id="@+id/recycleview_same_type_book_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="#Ten sach"
+            android:textSize="20dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:layout_below="@+id/recycleview_same_type_image"/>
+
+        <TextView
+            android:id="@+id/recycleview_same_type_author_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="#Ten tac gia"
+            android:textSize="15dp"
+            android:textColor="@color/white"
+            android:layout_below="@+id/recycleview_same_type_book_name"
+            android:layout_marginLeft="5dp"/>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

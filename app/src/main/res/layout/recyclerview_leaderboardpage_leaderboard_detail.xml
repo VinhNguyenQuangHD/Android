@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_marginTop="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/linenear_background"
+        android:padding="5dp">
+
+        <ImageView
+            android:id="@+id/leaderboard_detail_book_image"
+            android:layout_width="45dp"
+            android:layout_height="60dp" />
+
+        <TextView
+            android:id="@+id/leaderboard_detail_book_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="15dp"
+            android:text="#Ten sach"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/leaderboard_detail_book_author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/leaderboard_detail_book_name"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="5dp"
+            android:text="#Ten tac gia"
+            android:textColor="@color/white"
+            android:textSize="13dp" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="230dp"
+            android:layout_marginTop="9dp"
+            android:background="@drawable/ic_eye_white_24" />
+
+        <TextView
+            android:id="@+id/leaderboard_detail_book_watch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/leaderboard_detail_book_name"
+            android:layout_marginLeft="215dp"
+            android:layout_marginTop="5dp"
+            android:text="#Luot doc"
+            android:textColor="@color/white"
+            android:textSize="13dp" />
+
+        <TextView
+            android:id="@+id/leaderboard_detail_rank"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="320dp"
+            android:layout_marginTop="10dp"
+            android:text="#1"
+            android:textColor="@color/white"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

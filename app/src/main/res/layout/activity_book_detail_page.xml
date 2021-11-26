@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BookDetailPage"
+    android:background="@drawable/linenear_background">
+
+
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/turn_back_btn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rough_corner"
+        android:src="@drawable/ic_baseline_turn_back_purple" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/image_book_display"
+            android:layout_width="115dp"
+            android:layout_height="140dp"
+            android:layout_below="@+id/turn_back_btn"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/book_arsene_lupin" />
+
+    <TextView
+        android:id="@+id/detail_book_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/turn_back_btn"
+        android:layout_marginLeft="145dp"
+        android:layout_marginTop="15dp"
+        android:text="#Tên sách"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/detail_author_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/detail_book_name"
+        android:layout_marginLeft="145dp"
+        android:layout_marginTop="5dp"
+        android:text="#Tên tác giả"
+        android:textColor="@color/white"
+        android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/detail_type_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/detail_author_name"
+            android:layout_marginLeft="145dp"
+            android:layout_marginTop="5dp"
+            android:text="#Tên thể loại"
+            android:textColor="@color/white"
+            android:textSize="15dp" />
+
+
+        <TextView
+            android:id="@+id/detail_rate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/detail_type_txt"
+            android:layout_marginLeft="145dp"
+            android:layout_marginTop="5dp"
+            android:text="Đánh giá:"
+            android:textColor="@color/white"
+            android:textSize="17dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/bookdetailpage_total_rank_point"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/detail_type_txt"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/detail_rate"
+            android:text="3 / 5"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/spend_point_btn"
+            android:layout_width="100dp"
+            android:layout_height="45dp"
+            android:layout_below="@+id/image_book_display"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/violet"
+            android:text="1000P"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/bookdetailpage_favorite_list"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_below="@+id/detail_rate"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/spend_point_btn"
+            android:background="@drawable/heart_icon" />
+
+        <ImageButton
+            android:id="@+id/bookdetailpage_report_btn"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_below="@+id/detail_rate"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/bookdetailpage_favorite_list"
+            android:background="@drawable/warning" />
+
+        <RelativeLayout
+            android:visibility="gone"
+            android:id="@+id/report_frame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bookdetailpage_report_btn"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="35dp">
+
+            <Spinner
+                android:id="@+id/bookdetail_report_choose"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
+                android:textColor="@color/white"
+                android:textSize="15dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/report_send_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/bookdetail_report_choose"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/rough_corner_3"
+                android:padding="15dp"
+                android:text="Gửi"
+                android:textColor="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/report_send_close_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/bookdetail_report_choose"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/rough_corner_2"
+                android:padding="15dp"
+                android:text="Đóng"
+                android:textColor="@color/white" />
+
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/chapter_list_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/spend_point_btn"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="20dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp" />
+
+        <TextView
+        android:id="@+id/detail_rate_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/chapter_list_view"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
+        android:text="Điểm đánh giá:"
+        android:textColor="@color/white"
+        android:textSize="17dp"
+        android:textStyle="bold" />
+
+    <Spinner
+        android:id="@+id/select_rank"
+        android:layout_width="75dp"
+        android:layout_height="35dp"
+        android:layout_below="@+id/chapter_list_view"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/chapter_list_view"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="125dp"
+        android:padding="5dp"
+        android:text="/ 5"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/commend_area"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/detail_rate_score"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:text="Bình luận:"
+        android:textColor="@color/white"
+        android:textSize="17dp"
+        android:textStyle="bold" />
+
+        <RelativeLayout
+            android:id="@+id/commend_frame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/commend_area"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="35dp">
+
+            <EditText
+                android:id="@+id/bookdetail_book_commend"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
+                android:backgroundTint="@color/white"
+                android:hint="Input your commend"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textSize="15dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/comment_add_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/bookdetail_book_commend"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/rough_corner_3"
+                android:padding="15dp"
+                android:text="Bình luận"
+                android:textColor="@color/white" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/comment_section_area"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/comment_add_btn"
+                android:layout_marginTop="5dp"
+                android:padding="10dp" />
+        </RelativeLayout>
+
+    <TextView
+        android:id="@+id/same_type_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/commend_frame"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:text="Cùng thể loại:"
+        android:textColor="@color/white"
+        android:textSize="17dp"
+        android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/same_type_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/same_type_txt"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp" />
+
+    <RelativeLayout
+        android:layout_below="@id/same_type_list"
+        android:layout_width="match_parent"
+        android:layout_height="600dp"/>
+</RelativeLayout>
+</ScrollView>

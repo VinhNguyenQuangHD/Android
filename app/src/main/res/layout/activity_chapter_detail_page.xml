@@ -1,0 +1,80 @@
+
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/linenear_background">
+<RelativeLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChapterDetailPage">
+
+    <TextView
+        android:id="@+id/chapter_text_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        android:fontFamily="@font/gothicb"
+        android:textColor="@color/white"
+        android:text="Chuong I:"/>
+
+    <TextView
+        android:id="@+id/chapter_text_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/chapter_text_1"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/gothicb"
+        android:text="#Ten chuong tieu thuyet"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+    <com.github.barteksc.pdfviewer.PDFView
+        android:id="@+id/chapter_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/page_interact"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp" />
+
+    <RelativeLayout
+        android:id="@+id/page_interact"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/chapter_text_2"
+        android:layout_marginTop="5dp"
+        >
+
+        <ImageButton
+            android:id="@+id/previous_page_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rought_button"
+            android:src="@drawable/ic_baseline_navigate_before_24" />
+
+        <ImageButton
+            android:id="@+id/next_page_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="90dp"
+            android:background="@drawable/rought_button"
+            android:src="@drawable/ic_baseline_navigate_next_green" />
+
+        <Spinner
+            android:id="@+id/page_chooser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp" />
+    </RelativeLayout>
+
+</RelativeLayout>
+</ScrollView>
