@@ -24,7 +24,7 @@ public class Library_frag extends Fragment {
 
     private ArrayList<Librarypage_personal_lib> personal_libs;
 
-    private ArrayList<Librarypage_lib_recommend> recommends_list;
+    private ArrayList<Book_overal> recommends_list;
 
     private RecyclerView recycleview,recycleview2;
 
@@ -62,10 +62,7 @@ public class Library_frag extends Fragment {
         personal_libs = new ArrayList<>();
         recommends_list= new ArrayList<>();
 
-        setInfor();
         setAdapter();
-
-        setInfor2();
         setAdapter2();
     }
 
@@ -77,11 +74,6 @@ public class Library_frag extends Fragment {
         recycleview2.setAdapter(adapter2);
     }
 
-    private void setInfor2() {
-        recommends_list.add(new Librarypage_lib_recommend("Arsene Lupin","Maurience Leblance","1.444M"
-                ,R.drawable.book_arsene_lupin,R.drawable.ic_baseline_remove_red_eye_24,R.drawable.ic_baseline_add_24));
-    }
-
     private void setAdapter() {
         Librarypage_personal_lib_adapter adapter = new Librarypage_personal_lib_adapter(personal_libs);
         RecyclerView.LayoutManager manager = new LinearLayoutManager(getActivity().getApplicationContext());
@@ -90,8 +82,4 @@ public class Library_frag extends Fragment {
         recycleview.setAdapter(adapter);
     }
 
-    private void setInfor() {
-        personal_libs.add(new Librarypage_personal_lib(R.drawable.book_arsene_lupin,R.drawable.book_arsene_lupin,
-                R.drawable.book_arsene_lupin,R.drawable.book_arsene_lupin,"Personal lib 1","Include:...","Read more..."));
-    }
 }
