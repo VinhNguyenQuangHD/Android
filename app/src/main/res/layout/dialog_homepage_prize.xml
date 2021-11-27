@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/linenear_background"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/text_time_reading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thưởng theo thời gian"
+            android:textSize="20dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="20dp"
+            />
+
+        <RelativeLayout
+            android:id="@+id/time_reward_space"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@+id/text_time_reading"
+            android:layout_marginTop="10dp">
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/text_vouchers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mã giảm giá"
+            android:layout_below="@+id/time_reward_space"
+            android:textSize="20dp"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="20dp"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/vouchers_list"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_vouchers"/>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

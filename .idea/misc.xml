@@ -79,6 +79,10 @@
         <entry key="..\:/MyAndroid/app/src/main/res/menu/item_menu.xml" value="0.1675213675213675" />
         <entry key="..\:/MyAndroid/app/src/main/res/menu/nav_bottom.xml" value="0.16203703703703703" />
         <entry key="..\:/MyAndroid/app/src/main/res/menu/side_nav_menu.xml" value="0.1675213675213675" />
+        <entry key="..\:/Users/nguye/Desktop/GitHubFolder/Android/app/src/main/res/layout/dialog_book_detailpage_report.xml" value="0.1" />
+        <entry key="..\:/Users/nguye/Desktop/GitHubFolder/Android/app/src/main/res/layout/dialog_homepage_prize.xml" value="0.1" />
+        <entry key="..\:/Users/nguye/Desktop/GitHubFolder/Android/app/src/main/res/layout/fragment_home_frag.xml" value="0.1" />
+        <entry key="..\:/Users/nguye/Desktop/GitHubFolder/Android/app/src/main/res/layout/fragment_library_frag.xml" value="0.1" />
         <entry key="..\:/Users/nguye/Desktop/GitHubFolder/Android/app/src/main/res/layout/recycleview_librarypage_list_recommend.xml" value="0.18" />
       </map>
     </option>

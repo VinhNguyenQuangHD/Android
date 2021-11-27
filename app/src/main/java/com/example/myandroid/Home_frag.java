@@ -31,6 +31,8 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.firebase.ui.database.*;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseException;
@@ -62,13 +64,13 @@ public class Home_frag extends Fragment {
     private Homepage_what_new_adapter what_new_adapter;
     private Homepage_what_new_adapter.RecyclerviewClick what_new_listenner;
 
-    private ImageButton side_menu, daily_reward_btn;
+    private ImageButton side_menu, daily_reward_btn, prize_btn;
 
     private CircleImageView user_img;
 
     private TextView textView,point_view;
 
-
+    String email_txt;
 
     public Home_frag() {
         // Required empty public constructor
@@ -96,7 +98,7 @@ public class Home_frag extends Fragment {
         textView = (TextView) view.findViewById(R.id.homepage_user_txt);
         point_view = (TextView) view.findViewById(R.id.homepage_user_point_txt);
 
-        daily_reward_btn = (ImageButton) view.findViewById(R.id.homepage_login);
+        daily_reward_btn = (ImageButton) view.findViewById(R.id.homepage_daily_login);
 
         what_new_recyclerview = (RecyclerView) view.findViewById(R.id.bookpage_datetime_new_book);
         what_new_recyclerview.setLayoutManager(
@@ -104,11 +106,13 @@ public class Home_frag extends Fragment {
 
         user_img = (CircleImageView) view.findViewById(R.id.user_img_display);
 
+        prize_btn = (ImageButton) view.findViewById(R.id.homepage_prize);
+
         list = new ArrayList<>();
         acc_list = new ArrayList<>();
 
         Bundle bundle = getActivity().getIntent().getExtras();
-        String email_txt = bundle.getString("email");
+        email_txt = bundle.getString("email");
 
         GetUser(email_txt);
 
@@ -120,10 +124,6 @@ public class Home_frag extends Fragment {
                 startActivity(i);
             }
         });
-
-        /*FirebaseRecyclerOptions<Book_overal> options = new FirebaseRecyclerOptions.Builder<Book_overal>()
-                .setQuery(FirebaseDatabase.getInstance().getReference().child("sach"),Book_overal.class)
-                .build();*/
 
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("sach");
         ref.addValueEventListener(new ValueEventListener() {
@@ -150,7 +150,19 @@ public class Home_frag extends Fragment {
         adapter = new Homepage_recommend_adapter(listenner,list);
         recycleview.setAdapter(adapter);
 
+        daily_reward_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LoginEvent(Gravity.CENTER);
+            }
+        });
 
+        prize_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                GetPrize(Gravity.CENTER);
+            }
+        });
         // Inflate the layout for this fragment
         return view;
     }
@@ -178,7 +190,6 @@ public class Home_frag extends Fragment {
 
             return true;
         }else{
-            Toast.makeText(getActivity(), "Hãy chờ đến hôm sau", Toast.LENGTH_SHORT).show();
             return false;
         }
     }
@@ -186,7 +197,7 @@ public class Home_frag extends Fragment {
     private void LoginEvent(int gravity){
         final Dialog custom_dialog = new Dialog(getContext());
         custom_dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        custom_dialog.setContentView(R.layout.account_informationpage_edit_dialog);
+        custom_dialog.setContentView(R.layout.dialog_homepage_daily_login);
 
         Window window = custom_dialog.getWindow();
         if(window == null){
@@ -207,28 +218,45 @@ public class Home_frag extends Fragment {
         }
 
         Button Claim_reward = custom_dialog.findViewById(R.id.daily_login_btn);
+
         TextView point = custom_dialog.findViewById(R.id.daily_login_point);
+        TextView notice = custom_dialog.findViewById(R.id.daily_login_notice);
 
         HashMap point_change = new HashMap();
         point_change.put("point",point.getText().toString());
 
-        DatabaseReference account_infor_Reference = FirebaseDatabase.getInstance().getReference("thongtintaikhoan");
-        account_infor_Reference.orderByChild("username").equalTo(textView.getText().toString())
-                .addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        for(DataSnapshot dataSnapshot : snapshot.getChildren()){
-                            Account_infor acc = dataSnapshot.getValue(Account_infor.class);
+        Claim_reward.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                DatabaseReference ref = FirebaseDatabase.getInstance().getReference("thongtintaikhoan");
+                ref.child(email_txt.replace(".","")).updateChildren(point_change).addOnCompleteListener(new OnCompleteListener() {
+                    @Override
+                    public void onComplete(@NonNull Task task) {
+                        if(task.isSuccessful()){
+                            if(LoginState() == true){
+                                Toast.makeText(getContext(), "Đã nhận được điểm", Toast.LENGTH_SHORT).show();
+                            }else{
+                                Toast.makeText(getContext(), "Điểm hôm nay đã nhận", Toast.LENGTH_SHORT).show();
+                            }
+
+                            Claim_reward.setVisibility(View.GONE);
+                            notice.setVisibility(View.VISIBLE);
+
+                            custom_dialog.dismiss();
+                        }else{
+                            Toast.makeText(getContext(), "Không thể nhận điểm", Toast.LENGTH_SHORT).show();
+
+                            Claim_reward.setVisibility(View.VISIBLE);
+                            notice.setVisibility(View.GONE);
+
+                            custom_dialog.dismiss();
                         }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
 
                     }
                 });
-
+            }
+        });
         custom_dialog.show();
     }
 
@@ -298,20 +326,30 @@ public class Home_frag extends Fragment {
                 startActivity(i);
             }
         };
-
-
     }
 
+    private void GetPrize(int gravity){
+        final Dialog custom_dialog = new Dialog(getContext());
+        custom_dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        custom_dialog.setContentView(R.layout.dialog_homepage_prize);
 
-    /*@Override
-    public void onStart(){
-        super.onStart();
-        adapter.startListening();
+        Window window = custom_dialog.getWindow();
+        if(window == null){
+            return;
+        }
+
+        window.setLayout(WindowManager.LayoutParams.MATCH_PARENT,WindowManager.LayoutParams.WRAP_CONTENT);
+        window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+        WindowManager.LayoutParams win_attr = window.getAttributes();
+        win_attr.gravity = gravity;
+        window.setAttributes(win_attr);
+
+        if(Gravity.BOTTOM == gravity){
+            custom_dialog.setCancelable(true);
+        }else{
+            custom_dialog.setCancelable(false);
+        }
+        custom_dialog.show();
     }
-
-    @Override
-    public void onStop(){
-        super.onStop();
-        adapter.stopListening();
-    }*/
 }
